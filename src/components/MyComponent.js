@@ -17,16 +17,16 @@ class MyComponent extends React.Component {
 
     // event dùng để cung cấp các thông tin ....
     // merge state => react class 
-    handleClick(event){ // dùng hàm mũi tên mới tham chiếu được với this
+    handleClick(event) { // dùng hàm mũi tên mới tham chiếu được với this
         console.log("Click me my button");
-        console.log("random ",Math.floor(Math.random() * 100) + 1);
+        console.log("random ", Math.floor(Math.random() * 100) + 1);
         //  in state
         // console.log("My name is: ", this.state.age);
 
         //  cập nhật state với setState
         //  truyền vào một biến object
         this.setState({
-            name:'Eric',
+            name: 'Eric',
             age: Math.floor((Math.random() * 100) + 1) // cập nhật tuổi ngẫu nhiên
         })
 
@@ -37,6 +37,24 @@ class MyComponent extends React.Component {
     hanldleOnMoverOver(event) {
         // console.log(event.pageX);
     }
+
+    handleOnChangeInput = (event) => {
+
+        this.setState({
+            // cập nhật tên qua event
+            name: event.target.value
+        })
+
+        // console.log(event,event.target.value);
+    }
+
+    handleOnSubmit = (event) => {
+        // ngăn tải lại trang bằng
+        event.preventDefault();
+        // in state
+        console.log(this.state);
+    }
+    // jsx
     render() {
         return (
             <div>
@@ -45,9 +63,11 @@ class MyComponent extends React.Component {
                 <div>
                     <hr />
                 </div>
-                <button onMouseOver={this.hanldleOnMoverOver}>Hover me</button>
-                {/* <button onClick={this.handleClick}>Click me</button> dùng với hàm mũi tên trên */}
-                <button onClick={(event) => { this.handleClick(event) }}>Click me</button> {/* dùng với hàm mũi trực tiếp*/}
+                {/*  event onChange */}
+                <form onSubmit={(event) => this.handleOnSubmit(event)}>
+                    <input type="text" onChange={(event) => this.handleOnChangeInput(event)} />
+                    <button>submit</button>
+                </form>
             </div>
         );
     }
