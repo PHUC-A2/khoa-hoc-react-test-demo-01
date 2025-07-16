@@ -1,5 +1,5 @@
 import React from "react";
-
+import './DisplayInfo.scss'
 class DisplayInfo extends React.Component {
 
     handleShowHide = () => {
@@ -18,7 +18,7 @@ class DisplayInfo extends React.Component {
         const { listUser } = this.props;
 
         return (
-            <div>
+            <div className="display-info-container">
                 <div>
                     <span onClick={() => this.handleShowHide()}>
                         {/* Ẩn danh sách user */}
@@ -33,7 +33,7 @@ class DisplayInfo extends React.Component {
                             return (
                                 // điều kiện
                                 <div key={user.id} className={+user.age >= 18 ? "green" : "red"}>
-                                    <div>My name's:{user.name}</div>
+                                    <div style={{ color: 'yellow', paddingTop: '50px' }}>My name's:{user.name}</div>
                                     <div>My age's:{user.age}</div>
                                     <hr />
                                 </div>
