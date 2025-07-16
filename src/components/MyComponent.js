@@ -1,7 +1,7 @@
 import React from 'react';
 
-import UserInfo from "./UserInfo";
 import DisplayInfo from "./DisplayInfo";
+import AddUserInfo from './AddUserInfo';
 
 // class component
 
@@ -16,16 +16,25 @@ class MyComponent extends React.Component {
         ]
     }
 
+    handleAddNewUser = (userObj) => {
+
+        //  cập nhật list user để thêm khi nhấn submit
+        this.setState({
+            // copy lại mảng và thêm user mới vào đầu mảng
+            listUser: [userObj, ...this.state.listUser]
+        })
+    }
+
     // jsx
     render() {
 
         // const myInfo = ['ab', 'c', 'd']
         return (
             <div>
-                <UserInfo />
-                {/* <DisplayInfo name="Hoi Dan IT" age="30" />
-                <DisplayInfo name="Eric" age="26" /> */}
-
+                <AddUserInfo
+                    // hàm thêm người dùng
+                    handleAddNewUser={this.handleAddNewUser}
+                />
                 {/* Ví dụ muốn truyền vào các kiểu dữ liệu ngoài String */}
                 <DisplayInfo
                     listUser={this.state.listUser}

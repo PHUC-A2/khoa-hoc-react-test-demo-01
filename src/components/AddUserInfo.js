@@ -1,14 +1,14 @@
 import React from 'react'
 
-class UserInfo extends React.Component {
+class AddUserInfo extends React.Component {
     // hàm render
     // Cú pháp jsx cho phép viết code trong html
     // state là 1 biến obj
     //  khái báo state và dùng this để gọi đến thuộc tính
     state = {
-        name: 'HaryPhamDev',
+        name: '',
         address: 'Hoi Dan IT',
-        age: 26
+        age: ''
     };
     // event dùng để cung cấp các thông tin ....
     // merge state => react class
@@ -34,8 +34,12 @@ class UserInfo extends React.Component {
     handleOnSubmit = (event) => {
         // ngăn tải lại trang bằng
         event.preventDefault();
-        // in state
-        console.log(this.state);
+        // dùng props để gọi đến hàm add
+        this.props.handleAddNewUser({
+            id: Math.floor((Math.random() * 100) + 1 ) + '-random',
+            name: this.state.name,
+            age: this.state.age
+        });
     }
 
     render() {
@@ -77,4 +81,4 @@ class UserInfo extends React.Component {
     }
 }
 
-export default UserInfo;
+export default AddUserInfo;
