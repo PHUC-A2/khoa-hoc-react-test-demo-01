@@ -44,7 +44,7 @@ class UserInfo extends React.Component {
                 My name is {this.state.name} and I'm {this.state.age}
                 {/* Ví dụ về Event */}
                 <div>
-                    <hr/>
+                    <hr />
                 </div>
                 {/*  event onChange */}
                 <form onSubmit={(event) => this.handleOnSubmit(event)}>
@@ -57,7 +57,7 @@ class UserInfo extends React.Component {
                         type="text"
                         onChange={(event) => this.handleOnChangeInput(event)}
                     />
-                    <br/>
+                    <br />
                     <label>
                         Your age:
                     </label>
@@ -67,11 +67,11 @@ class UserInfo extends React.Component {
                         type="text"
                         onChange={(event) => this.handleOnChangeAge(event)}
                     />
-                    <br/>
+                    <br />
                     <button>submit</button>
                 </form>
-                <br/>
-                <hr/>
+                <br />
+                <hr />
             </div>
         );
     }
